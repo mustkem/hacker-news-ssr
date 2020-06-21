@@ -1,0 +1,68 @@
+.user-list li {
+  position: relative;
+  padding-left: 36px;
+  padding-top: 2px;
+  padding-bottom: 8px;
+}
+
+.detail-bar {
+  display: flex;
+  padding: 5px 0;
+  font-size: 8pt;
+  color: #868686;
+}
+
+.upvote {
+  color: #868686;
+  cursor: pointer;
+}
+
+.table-bordered td,
+.table-bordered th {
+  border: 0px solid #dee2e6;
+}
+
+.table thead th {
+  border: 0px solid #dee2e6;
+  background-color: orangered;
+  color: #fff;
+  text-transform: capitalize;
+}
+
+.table td,
+.table th {
+  border: 0px solid #dee2e6;
+  text-align: center;
+}
+
+.table td,
+.table th {
+  padding: 0.5rem;
+}
+
+.table thead th {
+  width: 100px;
+}
+
+.table thead th:last-child {
+  width: calc(100% - 300px);
+  text-align: left;
+}
+.title {
+  padding-right: 8px;
+}
+
+.hide {
+  color: #000;
+}
+
+.details {
+  display: flex;
+}
+
+.user-list .url {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100px;
+}
