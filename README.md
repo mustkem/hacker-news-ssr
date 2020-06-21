@@ -12,7 +12,7 @@ The initial page load is faster than client side rendering.
 ### Expected Outcomes:
 1. Server side Rendering with custom setup -- No third party plugin is used
 2. Semantic design
-3. Unit tests cases (tests if props are corrctly passed, childrens are available, If mock click event works fine. file-name= [__tests__]). A custom setup to support Test cases is intigrated.
+3. Unit tests cases (tests if props are correctly passed, childrens are available, If mock click event works fine. file-name= [__tests__]). A custom setup to support Test cases is intigrated.
 4. Upvote - You can add as many upvotes as you wish.(Api mocked)
 5. Hide functionality to remove the news from user’s view. (Also created action that can be intigtated with api )
 6. Prev | Next link should get the relevant data and all paginated urls should be bookmarkable.
