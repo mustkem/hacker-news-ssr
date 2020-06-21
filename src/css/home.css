@@ -10,11 +10,19 @@
   padding: 5px 0;
   font-size: 8pt;
   color: #868686;
+  align-items: baseline;
 }
 
 .upvote {
   color: #868686;
   cursor: pointer;
+  padding: 2px;
+  font-size: 13pt;
+}
+
+.upvote:active {
+  box-shadow: 0px 0px 7px 0px #868686;
+  border-radius: 50%;
 }
 
 .table-bordered td,
@@ -54,15 +62,44 @@
 
 .hide {
   color: #000;
+  cursor: pointer;
 }
 
 .details {
   display: flex;
 }
 
-.user-list .url {
+.detail-bar .url {
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  width: 100px;
+  max-width: 200px;
+}
+
+button,
+button:focus {
+  border: 0;
+  outline: 0;
+  padding: 0;
+  background: transparent;
+  font-size: 8pt;
+}
+
+.pagination-wrap {
+  display: flex;
+}
+
+.pagination {
+  margin-left: auto;
+  padding: 10px;
+}
+
+.pagination button {
+  font-size: 10pt;
+  padding: 0 4px;
+  color: orange;
+}
+
+.pagination .previous {
+  border-right: 1px solid orange;
 }

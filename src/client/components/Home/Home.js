@@ -6,14 +6,21 @@ import homeCss from "../../../css/home.css";
 import Table from "react-bootstrap/Table";
 
 import UserItem from "./UserItem";
+import { upvotePost, hideUser } from "../../actions/index";
 
 const Home = (props) => {
   function renderUsers() {
     return (
-      props.users &&
-      props.users.hits &&
-      props.users.hits.map((user) => {
-        return <UserItem key={user.objectID} user={user} />;
+      props.hits &&
+      props.hits.map((user) => {
+        return (
+          <UserItem
+            key={user.objectID}
+            user={user}
+            upvotePost={props.upvotePost}
+            hideUser={props.hideUser}
+          />
+        );
       })
     );
   }
@@ -43,14 +50,27 @@ const Home = (props) => {
         </thead>
         <tbody>{renderUsers()}</tbody>
       </Table>
+      <div className="pagination-wrap">
+        <div className="pagination">
+          <button className="previous">Previous</button>
+          <button>Next</button>
+        </div>
+      </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ users }) => {
+const mapStateToProps = (state) => {
+  const data = state.users.toJS();
   return {
-    users,
+    hits: data.hits,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    upvotePost: (id) => dispatch(upvotePost(id)),
+    hideUser: (id) => dispatch(hideUser(id)),
   };
 };
 
-export default connect(mapStateToProps)(Home);
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
