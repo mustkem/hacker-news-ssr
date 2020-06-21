@@ -56439,6 +56439,7 @@ function forwardRef(renderFn, _temp) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.UserItem = undefined;
 
 var _react = __webpack_require__(7);
 
@@ -56450,7 +56451,7 @@ var _reactRouterDom = __webpack_require__(56);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function UserItem(_ref) {
+var UserItem = exports.UserItem = function UserItem(_ref) {
   var user = _ref.user,
       upvotePost = _ref.upvotePost,
       hideUser = _ref.hideUser;
@@ -56530,7 +56531,7 @@ function UserItem(_ref) {
       )
     )
   );
-}
+};
 
 exports.default = UserItem;
 

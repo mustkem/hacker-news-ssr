@@ -2,7 +2,7 @@ import React from "react";
 import { BsFillCaretUpFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-function UserItem({ user, upvotePost, hideUser }) {
+export const UserItem = ({ user, upvotePost, hideUser }) => {
   return (
     <tr>
       <td>{user.num_comments || 0}</td>
@@ -38,6 +38,6 @@ function UserItem({ user, upvotePost, hideUser }) {
       </td>
     </tr>
   );
-}
+};
 
 export default UserItem;

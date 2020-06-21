@@ -31,7 +31,8 @@ describe("<Home />", () => {
     expect(wrapper.find(Pagination)).toHaveLength(1);
   });
 
-  it("should have container in it", () => {
-    wrapper.props().className.to.equal("container");
+  it("should have container class in it", () => {
+    console.log(wrapper.props().className);
+    expect(wrapper.props().className).toBe("container");
   });
 });
