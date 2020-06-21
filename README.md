@@ -14,6 +14,14 @@ This project hosts a intermediate server, generate all the templates at server s
 client. These templates are sent as plain string and are hydrated at client side by methods proided by reactdom.
 Below is the list of Technology, library, packages etc used to create this project.
 
+### Expected Outcomes:
+1. Server side Rendering with custom setup -- No third party plugin is used
+2. Semantic design
+3. Unit tests cases (tests if props are corrctly passed, childrens are available, If mock click event works fine. file-name= [__tests__]). A custom setup to support Test cases is intigrated.
+4. Upvote - You can add as many upvotes as you wish.(Api mocked)
+5. Hide functionality to remove the news from user’s view. (Also created action that can be intigtated with api )
+6. Prev | Next link should get the relevant data and all paginated urls should be bookmarkable.
+
 ## Node.js
 To create JavaScript runtime environment that can executes JavaScript code outside a web browser ie:server
 
@@ -73,13 +81,7 @@ To sanatise the html sent by server. And to nullify the XSS attacks
 ## npm-run-all
 To run multiple commands parallelly
 
-### Expected Outcomes:
-1. Server side Rendering with custom setup -- No thirs party plugin is used
-2. Responsive designing
-//3. Unit tests cases
-4. Upvote - You can add as many upvotes as you wish.(Mock of api )
-5. Hide functionality to remove the news from user’s view. (Also created action that can be intigtated with api )
-6. Prev | Next link should get the relevant data and all paginated urls should be bookmarkable.
+
 
 
 
