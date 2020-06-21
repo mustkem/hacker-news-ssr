@@ -399,8 +399,10 @@ app.get("*", function (req, res) {
   });
 });
 
-app.listen(process.env.PORT || 3000, function () {
-  console.log("Listening on prot 3000");
+var host = "0.0.0.0";
+var port = process.env.PORT || 3000;
+app.listen(port, host, function () {
+  console.log("Server started.......");
 });
 
 /***/ }),
