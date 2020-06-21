@@ -35,8 +35,8 @@ library such as static router and send the content back to client/browser.
 This javascript library is used for building user interfaces aka components at server side and as well as at client side.
 
 ## Webpack
-Webpack is used to bundle the assets of project. There are two seprate files one the configuration for client assets and another is 
-for server assets. Both files have diffent entry and output points. These both files share base configuration form a webpack.base.js
+Webpack is used to bundle the assets of project. There are two seprate files one configuration for client assets and another is 
+for server assets. Both files have diffent entry and output points. Both files share base configuration form a webpack.base.js
 file which is shared/common between both.
 
 ## Babel
@@ -48,9 +48,9 @@ raw loader is used. And for static assets like css files / images a webpack load
 Restarting the application when file changes in the directory are detected.
 
 ## redux react-redux
-Redux is used as application state container. This application has two redux store one for each the client side and server side. We build a standalone store at server side and this store will fill data to our react component at server side. Once our html is build, it is sent back to client by express server along with the stringified data of server store.
+Redux is used as application state container. This application has two redux store one for each the client side and the server side. We build a standalone store at server side and this store will fill data to our react component at server side. Once our html is build, it is sent back to client by express server along with the stringified data of server store.
 At client side we have all the components rendereded in client page. Now our requirment is to hydrate our app and give it the life. Bind all the javascript and events. For that we build the same html at client side by using the store data passed by server. So we pass this
-store json data which comes form server, to client store as initial state. And once element tree is build at client side it will take over the html sent by server.
+store json data which comes form server, to client store as initial state. And once element tree is build at client side it take over the html sent by server.
 
 ## Redux-thunk
 To dispatch actions other than object. ie - functions
