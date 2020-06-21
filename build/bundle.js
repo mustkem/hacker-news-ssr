@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 9);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -77,6 +77,18 @@ module.exports = require("react-router-dom");
 
 /***/ }),
 /* 2 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-router-config");
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-helmet");
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -250,18 +262,6 @@ var fetchCurrentUser = exports.fetchCurrentUser = function fetchCurrentUser() {
 };
 
 /***/ }),
-/* 3 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-router-config");
-
-/***/ }),
-/* 4 */
-/***/ (function(module, exports) {
-
-module.exports = require("react-helmet");
-
-/***/ }),
 /* 5 */
 /***/ (function(module, exports) {
 
@@ -290,15 +290,15 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _App = __webpack_require__(13);
+var _App = __webpack_require__(12);
 
 var _App2 = _interopRequireDefault(_App);
 
-var _HomePage = __webpack_require__(17);
+var _HomePage = __webpack_require__(16);
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
-var _NotFoundPage = __webpack_require__(25);
+var _NotFoundPage = __webpack_require__(23);
 
 var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
 
@@ -313,26 +313,20 @@ exports.default = [_extends({}, _App2.default, {
 
 /***/ }),
 /* 8 */
-/***/ (function(module, exports) {
-
-module.exports = require("redux");
-
-/***/ }),
-/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 
-__webpack_require__(10);
+__webpack_require__(9);
 
-var _express = __webpack_require__(11);
+var _express = __webpack_require__(10);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _reactRouterConfig = __webpack_require__(3);
+var _reactRouterConfig = __webpack_require__(2);
 
-var _expressHttpProxy = __webpack_require__(12);
+var _expressHttpProxy = __webpack_require__(11);
 
 var _expressHttpProxy2 = _interopRequireDefault(_expressHttpProxy);
 
@@ -340,19 +334,22 @@ var _Routes = __webpack_require__(7);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _renderer = __webpack_require__(26);
+var _renderer = __webpack_require__(24);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
-var _createStore = __webpack_require__(29);
+var _createStore = __webpack_require__(27);
 
 var _createStore2 = _interopRequireDefault(_createStore);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var dotenv = __webpack_require__(28);
+dotenv.config();
+
 var app = (0, _express2.default)();
 
-app.use("/api", (0, _expressHttpProxy2.default)("https://hn.algolia.com", {
+app.use("/api", (0, _expressHttpProxy2.default)(process.env.API_URL, {
   proxyReqOptDecorator: function proxyReqOptDecorator(opts) {
     opts.headers["x-forwarded-host"] = "localhost:3000";
     return opts;
@@ -389,30 +386,30 @@ app.get("*", function (req, res) {
   });
 });
 
-app.listen(3000, function () {
+app.listen(process.env.PORT || 3000, function () {
   console.log("Listening on prot 3000");
 });
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-polyfill");
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports) {
 
 module.exports = require("express");
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports) {
 
 module.exports = require("express-http-proxy");
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -426,13 +423,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactRouterConfig = __webpack_require__(3);
+var _reactRouterConfig = __webpack_require__(2);
 
-var _Header = __webpack_require__(14);
+var _Header = __webpack_require__(13);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _actions = __webpack_require__(2);
+var _actions = __webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -456,7 +453,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -472,13 +469,13 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(1);
 
-var _reactHelmet = __webpack_require__(4);
+var _reactHelmet = __webpack_require__(3);
 
-var _reset = __webpack_require__(15);
+var _reset = __webpack_require__(14);
 
 var _reset2 = _interopRequireDefault(_reset);
 
-var _global = __webpack_require__(16);
+var _global = __webpack_require__(15);
 
 var _global2 = _interopRequireDefault(_global);
 
@@ -517,7 +514,7 @@ var Header = function Header() {
 exports.default = Header;
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -525,7 +522,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ("/* http://meyerweb.com/eric/tools/css/reset/\r\n   v2.0-modified | 20110126\r\n   License: none (public domain)\r\n*/\r\n\r\nhtml,\r\nbody,\r\ndiv,\r\nspan,\r\napplet,\r\nobject,\r\niframe,\r\nh1,\r\nh2,\r\nh3,\r\nh4,\r\nh5,\r\nh6,\r\np,\r\nblockquote,\r\npre,\r\na,\r\nabbr,\r\nacronym,\r\naddress,\r\nbig,\r\ncite,\r\ncode,\r\ndel,\r\ndfn,\r\nem,\r\nimg,\r\nins,\r\nkbd,\r\nq,\r\ns,\r\nsamp,\r\nsmall,\r\nstrike,\r\nstrong,\r\nsub,\r\nsup,\r\ntt,\r\nvar,\r\nb,\r\nu,\r\ni,\r\ncenter,\r\ndl,\r\ndt,\r\ndd,\r\nol,\r\nul,\r\nli,\r\nfieldset,\r\nform,\r\nlabel,\r\nlegend,\r\ntable,\r\ncaption,\r\ntbody,\r\ntfoot,\r\nthead,\r\ntr,\r\nth,\r\ntd,\r\narticle,\r\naside,\r\ncanvas,\r\ndetails,\r\nembed,\r\nfigure,\r\nfigcaption,\r\nfooter,\r\nheader,\r\nhgroup,\r\nmenu,\r\nnav,\r\noutput,\r\nruby,\r\nsection,\r\nsummary,\r\ntime,\r\nmark,\r\naudio,\r\nvideo {\r\n  margin: 0;\r\n  padding: 0;\r\n  border: 0;\r\n  font-size: 100%;\r\n  font: inherit;\r\n  vertical-align: baseline;\r\n}\r\n\r\n/* make sure to set some focus styles for accessibility */\r\n:focus {\r\n  outline: 0;\r\n}\r\n\r\n/* HTML5 display-role reset for older browsers */\r\narticle,\r\naside,\r\ndetails,\r\nfigcaption,\r\nfigure,\r\nfooter,\r\nheader,\r\nhgroup,\r\nmenu,\r\nnav,\r\nsection {\r\n  display: block;\r\n}\r\n\r\nbody {\r\n  line-height: 1;\r\n}\r\n\r\nol,\r\nul {\r\n  list-style: none;\r\n}\r\n\r\nblockquote,\r\nq {\r\n  quotes: none;\r\n}\r\n\r\nblockquote:before,\r\nblockquote:after,\r\nq:before,\r\nq:after {\r\n  content: \"\";\r\n  content: none;\r\n}\r\n\r\ntable {\r\n  border-collapse: collapse;\r\n  border-spacing: 0;\r\n}\r\n\r\ninput[type=\"search\"]::-webkit-search-cancel-button,\r\ninput[type=\"search\"]::-webkit-search-decoration,\r\ninput[type=\"search\"]::-webkit-search-results-button,\r\ninput[type=\"search\"]::-webkit-search-results-decoration {\r\n  -webkit-appearance: none;\r\n  -moz-appearance: none;\r\n}\r\n\r\ninput[type=\"search\"] {\r\n  -webkit-appearance: none;\r\n  -moz-appearance: none;\r\n  -webkit-box-sizing: content-box;\r\n  -moz-box-sizing: content-box;\r\n  box-sizing: content-box;\r\n}\r\n\r\ntextarea {\r\n  overflow: auto;\r\n  vertical-align: top;\r\n  resize: vertical;\r\n}\r\n\r\n/**\r\n * Correct `inline-block` display not defined in IE 6/7/8/9 and Firefox 3.\r\n */\r\n\r\naudio,\r\ncanvas,\r\nvideo {\r\n  display: inline-block;\r\n  *display: inline;\r\n  *zoom: 1;\r\n  max-width: 100%;\r\n}\r\n\r\n/**\r\n * Prevent modern browsers from displaying `audio` without controls.\r\n * Remove excess height in iOS 5 devices.\r\n */\r\n\r\naudio:not([controls]) {\r\n  display: none;\r\n  height: 0;\r\n}\r\n\r\n/**\r\n * Address styling not present in IE 7/8/9, Firefox 3, and Safari 4.\r\n * Known issue: no IE 6 support.\r\n */\r\n\r\n[hidden] {\r\n  display: none;\r\n}\r\n\r\n/**\r\n * 1. Correct text resizing oddly in IE 6/7 when body `font-size` is set using\r\n *    `em` units.\r\n * 2. Prevent iOS text size adjust after orientation change, without disabling\r\n *    user zoom.\r\n */\r\n\r\nhtml {\r\n  font-size: 100%; /* 1 */\r\n  -webkit-text-size-adjust: 100%; /* 2 */\r\n  -ms-text-size-adjust: 100%; /* 2 */\r\n}\r\n\r\n/**\r\n * Address `outline` inconsistency between Chrome and other browsers.\r\n */\r\n\r\na:focus {\r\n  outline: thin dotted;\r\n}\r\n\r\n/**\r\n * Improve readability when focused and also mouse hovered in all browsers.\r\n */\r\n\r\na:active,\r\na:hover {\r\n  outline: 0;\r\n}\r\n\r\n/**\r\n * 1. Remove border when inside `a` element in IE 6/7/8/9 and Firefox 3.\r\n * 2. Improve image quality when scaled in IE 7.\r\n */\r\n\r\nimg {\r\n  border: 0; /* 1 */\r\n  -ms-interpolation-mode: bicubic; /* 2 */\r\n}\r\n\r\n/**\r\n * Address margin not present in IE 6/7/8/9, Safari 5, and Opera 11.\r\n */\r\n\r\nfigure {\r\n  margin: 0;\r\n}\r\n\r\n/**\r\n * Correct margin displayed oddly in IE 6/7.\r\n */\r\n\r\nform {\r\n  margin: 0;\r\n}\r\n\r\n/**\r\n * Define consistent border, margin, and padding.\r\n */\r\n\r\nfieldset {\r\n  border: 1px solid #c0c0c0;\r\n  margin: 0 2px;\r\n  padding: 0.35em 0.625em 0.75em;\r\n}\r\n\r\n/**\r\n * 1. Correct color not being inherited in IE 6/7/8/9.\r\n * 2. Correct text not wrapping in Firefox 3.\r\n * 3. Correct alignment displayed oddly in IE 6/7.\r\n */\r\n\r\nlegend {\r\n  border: 0; /* 1 */\r\n  padding: 0;\r\n  white-space: normal; /* 2 */\r\n  *margin-left: -7px; /* 3 */\r\n}\r\n\r\n/**\r\n * 1. Correct font size not being inherited in all browsers.\r\n * 2. Address margins set differently in IE 6/7, Firefox 3+, Safari 5,\r\n *    and Chrome.\r\n * 3. Improve appearance and consistency in all browsers.\r\n */\r\n\r\nbutton,\r\ninput,\r\nselect,\r\ntextarea {\r\n  font-size: 100%; /* 1 */\r\n  margin: 0; /* 2 */\r\n  vertical-align: baseline; /* 3 */\r\n  *vertical-align: middle; /* 3 */\r\n}\r\n\r\n/**\r\n * Address Firefox 3+ setting `line-height` on `input` using `!important` in\r\n * the UA stylesheet.\r\n */\r\n\r\nbutton,\r\ninput {\r\n  line-height: normal;\r\n}\r\n\r\n/**\r\n * Address inconsistent `text-transform` inheritance for `button` and `select`.\r\n * All other form control elements do not inherit `text-transform` values.\r\n * Correct `button` style inheritance in Chrome, Safari 5+, and IE 6+.\r\n * Correct `select` style inheritance in Firefox 4+ and Opera.\r\n */\r\n\r\nbutton,\r\nselect {\r\n  text-transform: none;\r\n}\r\n\r\n/**\r\n * 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`\r\n *    and `video` controls.\r\n * 2. Correct inability to style clickable `input` types in iOS.\r\n * 3. Improve usability and consistency of cursor style between image-type\r\n *    `input` and others.\r\n * 4. Remove inner spacing in IE 7 without affecting normal text inputs.\r\n *    Known issue: inner spacing remains in IE 6.\r\n */\r\n\r\nbutton,\r\nhtml input[type=\"button\"], /* 1 */\r\ninput[type=\"reset\"],\r\ninput[type=\"submit\"] {\r\n  -webkit-appearance: button; /* 2 */\r\n  cursor: pointer; /* 3 */\r\n  *overflow: visible; /* 4 */\r\n}\r\n\r\n/**\r\n * Re-set default cursor for disabled elements.\r\n */\r\n\r\nbutton[disabled],\r\nhtml input[disabled] {\r\n  cursor: default;\r\n}\r\n\r\n/**\r\n * 1. Address box sizing set to content-box in IE 8/9.\r\n * 2. Remove excess padding in IE 8/9.\r\n * 3. Remove excess padding in IE 7.\r\n *    Known issue: excess padding remains in IE 6.\r\n */\r\n\r\ninput[type=\"checkbox\"],\r\ninput[type=\"radio\"] {\r\n  box-sizing: border-box; /* 1 */\r\n  padding: 0; /* 2 */\r\n  *height: 13px; /* 3 */\r\n  *width: 13px; /* 3 */\r\n}\r\n\r\n/**\r\n * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.\r\n * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome\r\n *    (include `-moz` to future-proof).\r\n */\r\n\r\ninput[type=\"search\"] {\r\n  -webkit-appearance: textfield; /* 1 */\r\n  -moz-box-sizing: content-box;\r\n  -webkit-box-sizing: content-box; /* 2 */\r\n  box-sizing: content-box;\r\n}\r\n\r\n/**\r\n * Remove inner padding and search cancel button in Safari 5 and Chrome\r\n * on OS X.\r\n */\r\n\r\ninput[type=\"search\"]::-webkit-search-cancel-button,\r\ninput[type=\"search\"]::-webkit-search-decoration {\r\n  -webkit-appearance: none;\r\n}\r\n\r\n/**\r\n * Remove inner padding and border in Firefox 3+.\r\n */\r\n\r\nbutton::-moz-focus-inner,\r\ninput::-moz-focus-inner {\r\n  border: 0;\r\n  padding: 0;\r\n}\r\n\r\n/**\r\n * 1. Remove default vertical scrollbar in IE 6/7/8/9.\r\n * 2. Improve readability and alignment in all browsers.\r\n */\r\n\r\ntextarea {\r\n  overflow: auto; /* 1 */\r\n  vertical-align: top; /* 2 */\r\n}\r\n\r\n/**\r\n * Remove most spacing between table cells.\r\n */\r\n\r\ntable {\r\n  border-collapse: collapse;\r\n  border-spacing: 0;\r\n}\r\n\r\nhtml,\r\nbutton,\r\ninput,\r\nselect,\r\ntextarea {\r\n  color: #222;\r\n}\r\n\r\n::-moz-selection {\r\n  background: #b3d4fc;\r\n  text-shadow: none;\r\n}\r\n\r\n::selection {\r\n  background: #b3d4fc;\r\n  text-shadow: none;\r\n}\r\n\r\nimg {\r\n  vertical-align: middle;\r\n}\r\n\r\nfieldset {\r\n  border: 0;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\ntextarea {\r\n  resize: vertical;\r\n}\r\n\r\n.chromeframe {\r\n  margin: 0.2em 0;\r\n  background: #ccc;\r\n  color: #000;\r\n  padding: 0.2em 0;\r\n}\r\n");
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -533,7 +530,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = ("* {\r\n  box-sizing: border-box;\r\n}\r\n\r\nhtml,\r\nbody {\r\n  font-family: \"Roboto\", sans-serif;\r\n  font-size: 10pt;\r\n  color: #828282;\r\n}\r\n\r\n.container {\r\n  max-width: 1200px;\r\n  width: 100%;\r\n  margin: 0 auto;\r\n  background-color: #f6f6ef;\r\n  padding: 0;\r\n}\r\n\r\n.main .container {\r\n  background-color: #f6f6ef;\r\n}\r\n\r\n.common {\r\n  padding: 3px;\r\n  display: inline-block;\r\n}\r\n\r\na {\r\n  color: black;\r\n  text-decoration: none;\r\n}\r\n\r\na:hover {\r\n  text-decoration: none;\r\n}\r\n");
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -555,11 +552,11 @@ var _reactRouterDom = __webpack_require__(1);
 
 var _queryString = __webpack_require__(5);
 
-var _Home = __webpack_require__(18);
+var _Home = __webpack_require__(17);
 
 var _Home2 = _interopRequireDefault(_Home);
 
-var _actions = __webpack_require__(2);
+var _actions = __webpack_require__(4);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -614,7 +611,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -630,23 +627,23 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(6);
 
-var _reactHelmet = __webpack_require__(4);
+var _reactHelmet = __webpack_require__(3);
 
-var _home = __webpack_require__(19);
+var _home = __webpack_require__(18);
 
 var _home2 = _interopRequireDefault(_home);
 
-var _Table = __webpack_require__(20);
+var _Table = __webpack_require__(19);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _UserItem = __webpack_require__(21);
+var _UserItem = __webpack_require__(20);
 
 var _UserItem2 = _interopRequireDefault(_UserItem);
 
-var _index = __webpack_require__(2);
+var _index = __webpack_require__(4);
 
-var _Pagination = __webpack_require__(23);
+var _Pagination = __webpack_require__(22);
 
 var _Pagination2 = _interopRequireDefault(_Pagination);
 
@@ -755,7 +752,7 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(Home);
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -763,13 +760,13 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony default export */ __webpack_exports__["default"] = (".user-list li {\r\n  position: relative;\r\n  padding-left: 36px;\r\n  padding-top: 2px;\r\n  padding-bottom: 8px;\r\n}\r\n\r\n.detail-bar {\r\n  display: flex;\r\n  padding: 5px 0;\r\n  font-size: 8pt;\r\n  color: #868686;\r\n  align-items: baseline;\r\n}\r\n\r\n.upvote {\r\n  color: #868686;\r\n  cursor: pointer;\r\n  padding: 2px;\r\n  font-size: 13pt;\r\n}\r\n\r\n.upvote:active {\r\n  box-shadow: 0px 0px 7px 0px #868686;\r\n  border-radius: 50%;\r\n}\r\n\r\n.table-bordered td,\r\n.table-bordered th {\r\n  border: 0px solid #dee2e6;\r\n}\r\n\r\n.table thead th {\r\n  border: 0px solid #dee2e6;\r\n  background-color: orangered;\r\n  color: #fff;\r\n  text-transform: capitalize;\r\n}\r\n\r\n.table td,\r\n.table th {\r\n  border: 0px solid #dee2e6;\r\n  text-align: center;\r\n}\r\n\r\n.table td,\r\n.table th {\r\n  padding: 0.5rem;\r\n}\r\n\r\n.table thead th {\r\n  width: 100px;\r\n}\r\n\r\n.table thead th:last-child {\r\n  width: calc(100% - 300px);\r\n  text-align: left;\r\n}\r\n.title {\r\n  padding-right: 8px;\r\n}\r\n\r\n.hide {\r\n  color: #000;\r\n  cursor: pointer;\r\n}\r\n\r\n.details {\r\n  display: flex;\r\n}\r\n\r\n.detail-bar .url {\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  max-width: 200px;\r\n}\r\n\r\nbutton,\r\nbutton:focus {\r\n  border: 0;\r\n  outline: 0;\r\n  padding: 0;\r\n  background: transparent;\r\n  font-size: 8pt;\r\n}\r\n\r\n.pagination-wrap {\r\n  display: flex;\r\n}\r\n\r\n.pagination {\r\n  margin-left: auto;\r\n  padding: 10px;\r\n}\r\n\r\n.pagination button {\r\n  font-size: 10pt;\r\n  padding: 0 4px;\r\n  color: orange;\r\n}\r\n\r\n.pagination .previous {\r\n  border-right: 1px solid orange;\r\n}\r\n");
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-bootstrap/Table");
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -783,7 +780,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _bs = __webpack_require__(22);
+var _bs = __webpack_require__(21);
 
 var _reactRouterDom = __webpack_require__(1);
 
@@ -874,13 +871,13 @@ function UserItem(_ref) {
 exports.default = UserItem;
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-icons/bs");
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -958,8 +955,7 @@ function Pagination(props) {
 exports.default = Pagination;
 
 /***/ }),
-/* 24 */,
-/* 25 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -992,7 +988,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 26 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1006,19 +1002,19 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _server = __webpack_require__(27);
+var _server = __webpack_require__(25);
 
 var _reactRouterDom = __webpack_require__(1);
 
 var _reactRedux = __webpack_require__(6);
 
-var _reactRouterConfig = __webpack_require__(3);
+var _reactRouterConfig = __webpack_require__(2);
 
-var _serializeJavascript = __webpack_require__(28);
+var _serializeJavascript = __webpack_require__(26);
 
 var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
 
-var _reactHelmet = __webpack_require__(4);
+var _reactHelmet = __webpack_require__(3);
 
 var _Routes = __webpack_require__(7);
 
@@ -1047,19 +1043,19 @@ exports.default = function (req, store, context) {
 };
 
 /***/ }),
-/* 27 */
+/* 25 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 28 */
+/* 26 */
 /***/ (function(module, exports) {
 
 module.exports = require("serialize-javascript");
 
 /***/ }),
-/* 29 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1069,17 +1065,17 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(8);
+var _redux = __webpack_require__(29);
 
-var _reduxThunk = __webpack_require__(30);
+var _reduxThunk = __webpack_require__(31);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _axios = __webpack_require__(31);
+var _axios = __webpack_require__(32);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reducers = __webpack_require__(32);
+var _reducers = __webpack_require__(33);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -1087,7 +1083,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function (req) {
   var axiosInstance = _axios2.default.create({
-    baseURL: "https://hn.algolia.com/api/v1",
+    baseURL: process.env.API_URL + "/api/v1",
     headers: { cookie: req.get("cookie") || "" }
   });
 
@@ -1097,19 +1093,37 @@ exports.default = function (req) {
 };
 
 /***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
+module.exports = require("dotenv");
+
+/***/ }),
+/* 29 */
+/***/ (function(module, exports) {
+
+module.exports = require("redux");
+
+/***/ }),
 /* 30 */
 /***/ (function(module, exports) {
 
-module.exports = require("redux-thunk");
+module.exports = require("immutable");
 
 /***/ }),
 /* 31 */
 /***/ (function(module, exports) {
 
-module.exports = require("axios");
+module.exports = require("redux-thunk");
 
 /***/ }),
 /* 32 */
+/***/ (function(module, exports) {
+
+module.exports = require("axios");
+
+/***/ }),
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1119,9 +1133,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _redux = __webpack_require__(8);
+var _redux = __webpack_require__(29);
 
-var _usersReducer = __webpack_require__(33);
+var _usersReducer = __webpack_require__(34);
 
 var _usersReducer2 = _interopRequireDefault(_usersReducer);
 
@@ -1137,7 +1151,7 @@ exports.default = (0, _redux.combineReducers)({
 });
 
 /***/ }),
-/* 33 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1147,9 +1161,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _actions = __webpack_require__(2);
+var _actions = __webpack_require__(4);
 
-var _immutable = __webpack_require__(34);
+var _immutable = __webpack_require__(30);
 
 function upvotePost(state, action) {
   var newState = state.toJS();
@@ -1188,12 +1202,6 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 34 */
-/***/ (function(module, exports) {
-
-module.exports = require("immutable");
-
-/***/ }),
 /* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1204,9 +1212,9 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _actions = __webpack_require__(2);
+var _actions = __webpack_require__(4);
 
-var _immutable = __webpack_require__(34);
+var _immutable = __webpack_require__(30);
 
 exports.default = function () {
   var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : (0, _immutable.Map)({});

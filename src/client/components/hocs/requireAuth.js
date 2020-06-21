@@ -4,7 +4,6 @@ import { Redirect } from "react-router-dom";
 
 export default (ChildComponent) => {
   class RequireAuth extends Component {
-    // test
     render() {
       switch (this.props.auth) {
         case false:

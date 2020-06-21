@@ -5,12 +5,14 @@ import proxy from "express-http-proxy";
 import Routes from "./client/Routes";
 import renderer from "./helpers/renderer";
 import createStore from "./helpers/createStore";
+const dotenv = require("dotenv");
+dotenv.config();
 
 const app = express();
 
 app.use(
   "/api",
-  proxy("https://hn.algolia.com", {
+  proxy(process.env.API_URL, {
     proxyReqOptDecorator(opts) {
       opts.headers["x-forwarded-host"] = "localhost:3000";
       return opts;
@@ -48,6 +50,6 @@ app.get("*", (req, res) => {
   });
 });
 
-app.listen(3000, () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log("Listening on prot 3000");
 });
