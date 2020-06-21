@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { stringify, parse } from "query-string";
 import { useLocation, useHistory } from "react-router-dom";
 
-function Pagination(props) {
+export const Pagination = (props) => {
   let location = useLocation();
   let history = useHistory();
   const [page, setPage] = useState(() => {
@@ -37,6 +37,6 @@ function Pagination(props) {
       </div>
     </div>
   );
-}
+};
 
 export default Pagination;

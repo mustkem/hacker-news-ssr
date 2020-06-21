@@ -56078,6 +56078,7 @@ exports.default = {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Home = undefined;
 
 var _react = __webpack_require__(7);
 
@@ -56107,7 +56108,7 @@ var _Pagination2 = _interopRequireDefault(_Pagination);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Home = function Home(props) {
+var Home = exports.Home = function Home(props) {
   function renderUsers() {
     return props.hits && props.hits.map(function (user) {
       return _react2.default.createElement(_UserItem2.default, {
@@ -56215,7 +56216,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = (".user-list li {\r\n  position: relative;\r\n  padding-left: 36px;\r\n  padding-top: 2px;\r\n  padding-bottom: 8px;\r\n}\r\n\r\n.detail-bar {\r\n  display: flex;\r\n  padding: 5px 0;\r\n  font-size: 8pt;\r\n  color: #868686;\r\n  align-items: baseline;\r\n}\r\n\r\n.upvote {\r\n  color: #868686;\r\n  cursor: pointer;\r\n  padding: 2px;\r\n  font-size: 13pt;\r\n}\r\n\r\n.upvote:active {\r\n  box-shadow: 0px 0px 7px 0px #868686;\r\n  border-radius: 50%;\r\n}\r\n\r\n.table-bordered td,\r\n.table-bordered th {\r\n  border: 0px solid #dee2e6;\r\n}\r\n\r\n.table thead th {\r\n  border: 0px solid #dee2e6;\r\n  background-color: orangered;\r\n  color: #fff;\r\n  text-transform: capitalize;\r\n}\r\n\r\n.table td,\r\n.table th {\r\n  border: 0px solid #dee2e6;\r\n  text-align: center;\r\n}\r\n\r\n.table td,\r\n.table th {\r\n  padding: 0.5rem;\r\n}\r\n\r\n.table thead th {\r\n  width: 100px;\r\n}\r\n\r\n.table thead th:last-child {\r\n  width: calc(100% - 300px);\r\n  text-align: left;\r\n}\r\n.title {\r\n  padding-right: 8px;\r\n}\r\n\r\n.hide {\r\n  color: #000;\r\n  cursor: pointer;\r\n}\r\n\r\n.details {\r\n  display: flex;\r\n}\r\n\r\n.detail-bar .url {\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  max-width: 200px;\r\n}\r\n\r\nbutton,\r\nbutton:focus {\r\n  border: 0;\r\n  outline: 0;\r\n  padding: 0;\r\n  background: transparent;\r\n  font-size: 8pt;\r\n}\r\n\r\n.pagination-wrap {\r\n  display: flex;\r\n}\r\n\r\n.pagination {\r\n  margin-left: auto;\r\n  padding: 10px;\r\n}\r\n\r\n.pagination button {\r\n  font-size: 10pt;\r\n  padding: 0 4px;\r\n  color: orange;\r\n}\r\n\r\n.pagination .previous {\r\n  border-right: 1px solid orange;\r\n}\r\n");
+/* harmony default export */ __webpack_exports__["default"] = (".user-list li {\r\n  position: relative;\r\n  padding-left: 36px;\r\n  padding-top: 2px;\r\n  padding-bottom: 8px;\r\n}\r\n\r\n.detail-bar {\r\n  display: flex;\r\n  padding: 5px 0;\r\n  font-size: 8pt;\r\n  color: #868686;\r\n  align-items: baseline;\r\n}\r\n\r\n.upvote {\r\n  color: #868686;\r\n  cursor: pointer;\r\n  padding: 2px;\r\n  font-size: 13pt;\r\n}\r\n\r\n.upvote:active {\r\n  color: green;\r\n}\r\n\r\n.table-bordered td,\r\n.table-bordered th {\r\n  border: 0px solid #dee2e6;\r\n}\r\n\r\n.table thead th {\r\n  border: 0px solid #dee2e6;\r\n  background-color: orangered;\r\n  color: #fff;\r\n  text-transform: capitalize;\r\n}\r\n\r\n.table td,\r\n.table th {\r\n  border: 0px solid #dee2e6;\r\n  text-align: center;\r\n}\r\n\r\n.table td,\r\n.table th {\r\n  padding: 0.5rem;\r\n}\r\n\r\n.table thead th {\r\n  width: 100px;\r\n}\r\n\r\n.table thead th:last-child {\r\n  width: calc(100% - 300px);\r\n  text-align: left;\r\n}\r\n.title {\r\n  padding-right: 8px;\r\n}\r\n\r\n.hide {\r\n  color: #000;\r\n  cursor: pointer;\r\n}\r\n\r\n.details {\r\n  display: flex;\r\n}\r\n\r\n.detail-bar .url {\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  max-width: 200px;\r\n}\r\n\r\nbutton,\r\nbutton:focus {\r\n  border: 0;\r\n  outline: 0;\r\n  padding: 0;\r\n  background: transparent;\r\n  font-size: 8pt;\r\n}\r\n\r\n.pagination-wrap {\r\n  display: flex;\r\n}\r\n\r\n.pagination {\r\n  margin-left: auto;\r\n  padding: 10px;\r\n}\r\n\r\n.pagination button {\r\n  font-size: 10pt;\r\n  padding: 0 4px;\r\n  color: orange;\r\n}\r\n\r\n.pagination .previous {\r\n  border-right: 1px solid orange;\r\n}\r\n");
 
 /***/ }),
 /* 470 */
@@ -60083,6 +60084,7 @@ function IconBase(props) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.Pagination = undefined;
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
@@ -60096,7 +60098,7 @@ var _reactRouterDom = __webpack_require__(56);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Pagination(props) {
+var Pagination = exports.Pagination = function Pagination(props) {
   var location = (0, _reactRouterDom.useLocation)();
   var history = (0, _reactRouterDom.useHistory)();
 
@@ -60147,7 +60149,7 @@ function Pagination(props) {
       )
     )
   );
-}
+};
 
 exports.default = Pagination;
 

@@ -9,7 +9,7 @@ import UserItem from "./UserItem";
 import { upvotePost, hideUser, fetchUsers } from "../../actions/index";
 import Pagination from "./Pagination";
 
-const Home = (props) => {
+export const Home = (props) => {
   function renderUsers() {
     return (
       props.hits &&

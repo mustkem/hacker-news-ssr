@@ -1,0 +1,10 @@
+{
+  "env": {
+    "test": {
+      "presets": ["env", "react", "stage-0"],
+      "plugins": ["transform-class-properties", "transform-export-extensions"],
+      "only": ["./**/*.js", "node_modules/jest-runtime"]
+    }
+  },
+  "plugins": ["react-loadable/babel"]
+}
