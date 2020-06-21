@@ -358,11 +358,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var app = (0, _express2.default)();
 
-if (app.get("env") == "development") {
-  __webpack_require__(35).config();
-}
-
-app.use("/api", (0, _expressHttpProxy2.default)(process.env.API_URL, {
+app.use("/api", (0, _expressHttpProxy2.default)("https://hn.algolia.com", {
   proxyReqOptDecorator: function proxyReqOptDecorator(opts) {
     opts.headers["x-forwarded-host"] = "localhost:3000";
     return opts;
@@ -1098,7 +1094,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function (req) {
   var axiosInstance = _axios2.default.create({
-    baseURL: process.env.API_URL + "/api/v1",
+    baseURL: "https://hn.algolia.com/api/v1",
     headers: { cookie: req.get("cookie") || "" }
   });
 
@@ -1224,12 +1220,6 @@ exports.default = function () {
       return (0, _immutable.fromJS)(state);
   }
 };
-
-/***/ }),
-/* 35 */
-/***/ (function(module, exports) {
-
-module.exports = require("dotenv");
 
 /***/ })
 /******/ ]);

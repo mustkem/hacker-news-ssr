@@ -8,13 +8,9 @@ import createStore from "./helpers/createStore";
 
 const app = express();
 
-if (app.get("env") == "development") {
-  require("dotenv").config();
-}
-
 app.use(
   "/api",
-  proxy(process.env.API_URL, {
+  proxy("https://hn.algolia.com", {
     proxyReqOptDecorator(opts) {
       opts.headers["x-forwarded-host"] = "localhost:3000";
       return opts;

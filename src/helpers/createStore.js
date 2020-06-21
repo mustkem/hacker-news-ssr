@@ -5,7 +5,7 @@ import reducers from "../client/reducers";
 
 export default (req) => {
   const axiosInstance = axios.create({
-    baseURL: `${process.env.API_URL}/api/v1`,
+    baseURL: "https://hn.algolia.com/api/v1",
     headers: { cookie: req.get("cookie") || "" },
   });
 
