@@ -1,9 +1,15 @@
+import { stringify } from "query-string";
+
 export const FETCH_USERS = "FETCH_USERS";
 export const UPVOTE_POST = "UPVOTE_POST";
 export const HIDE_USER = "HIDE_USER";
+export const QUERY_ON_SERVER_SIDE = "QUERY_ON_SERVER_SIDE";
 
-export const fetchUsers = () => async (dispatch, getState, api) => {
-  const res = await api.get("/search");
+export const fetchUsers = (query) => async (dispatch, getState, api) => {
+  if (!query.page) {
+    query.page = 1;
+  }
+  const res = await api.get("/search?" + stringify(query));
   dispatch({
     type: FETCH_USERS,
     payload: res.data,
@@ -24,6 +30,14 @@ export const hideUser = (id) => async (dispatch, getState, api) => {
   dispatch({
     type: HIDE_USER,
     payload: id,
+  });
+};
+
+export const queryOnServerSide = (query) => async (dispatch, getState) => {
+  //dispatch query for serverside //
+  dispatch({
+    type: QUERY_ON_SERVER_SIDE,
+    payload: query,
   });
 };
 

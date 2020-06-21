@@ -1,12 +1,16 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import { parse } from "query-string";
 
 import Home from "../components/Home/Home";
-import { fetchUsers } from "../actions";
+import { fetchUsers, queryOnServerSide } from "../actions";
 
 class HomePage extends Component {
   componentDidMount() {
-    this.props.fetchUsers();
+    const query = parse(this.props.location.search);
+    this.props.queryOnServerSide({ serverQuery: query });
+    this.props.fetchUsers(parse(this.props.location.search));
   }
 
   render() {
@@ -22,11 +26,14 @@ function mapStateToProps(state) {
   return { users: state.users };
 }
 
-function loadData(store) {
-  return store.dispatch(fetchUsers());
+function loadData(store, req) {
+  store.dispatch(queryOnServerSide({ serverQuery: req.query }));
+  return store.dispatch(fetchUsers(req.query));
 }
 
 export default {
   loadData,
-  component: connect(mapStateToProps, { fetchUsers })(HomePage),
+  component: withRouter(
+    connect(mapStateToProps, { fetchUsers, queryOnServerSide })(HomePage)
+  ),
 };

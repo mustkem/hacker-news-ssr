@@ -6,7 +6,8 @@ import homeCss from "../../../css/home.css";
 import Table from "react-bootstrap/Table";
 
 import UserItem from "./UserItem";
-import { upvotePost, hideUser } from "../../actions/index";
+import { upvotePost, hideUser, fetchUsers } from "../../actions/index";
+import Pagination from "./Pagination";
 
 const Home = (props) => {
   function renderUsers() {
@@ -50,26 +51,27 @@ const Home = (props) => {
         </thead>
         <tbody>{renderUsers()}</tbody>
       </Table>
-      <div className="pagination-wrap">
-        <div className="pagination">
-          <button className="previous">Previous</button>
-          <button>Next</button>
-        </div>
-      </div>
+      <Pagination
+        fetchUsers={props.fetchUsers}
+        serverQuery={props.serverQuery}
+      />
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
   const data = state.users.toJS();
+  const globalData = state.global.toJS();
   return {
     hits: data.hits,
+    serverQuery: globalData.serverQuery,
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
     upvotePost: (id) => dispatch(upvotePost(id)),
     hideUser: (id) => dispatch(hideUser(id)),
+    fetchUsers: (query) => dispatch(fetchUsers(query)),
   };
 };
 
