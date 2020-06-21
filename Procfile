@@ -1,0 +1,1 @@
+start: node build/bundle.js
