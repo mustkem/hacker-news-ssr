@@ -5,10 +5,12 @@ import proxy from "express-http-proxy";
 import Routes from "./client/Routes";
 import renderer from "./helpers/renderer";
 import createStore from "./helpers/createStore";
-const dotenv = require("dotenv");
-dotenv.config();
 
 const app = express();
+
+if (app.get("env") == "development") {
+  require("dotenv").config();
+}
 
 app.use(
   "/api",
