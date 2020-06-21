@@ -19,7 +19,7 @@ The initial page load is faster than client side rendering.
 
 ### Implementation Method and technology stack
 This project hosts a intermediate server, generate all the templates at server side as requested by client/browser and send them back to 
-client. These templates are sent as plain string and are hydrated at client side by methods proided by reactdom.
+client. These templates are sent as plain html and are hydrated at client side by methods proided by reactdom.
 Below is the list of Technology, library, packages etc used to create this project.
 
 
