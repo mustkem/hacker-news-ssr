@@ -41,7 +41,6 @@ describe("<UserItem />", () => {
 
   it("Should fire a click event", () => {
     const mockCallBack = jest.fn();
-
     const button = shallow(<button onClick={mockCallBack}>Ok!</button>);
     button.find("button").simulate("click");
     expect(mockCallBack.mock.calls.length).toEqual(1);
