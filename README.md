@@ -83,6 +83,18 @@ To sanatise the html sent by server. And to nullify the XSS attacks
 To run multiple commands parallelly
 
 
+# Run project
+
+Below command will run a development server. And project will run on localhost:3000
+npm run dev
+
+Below command will run test coverage for test cases
+npm run test
+
+Below command is to run the code at heroku
+npm start
+
+
 
 
 
