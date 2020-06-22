@@ -91,7 +91,7 @@ npm run dev
 Below command will run test coverage for test cases
 npm run test
 
-Below command is to run the code at heroku
+Below command is to deploy the code at heroku
 npm start
 
 
