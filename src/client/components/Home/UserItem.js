@@ -7,14 +7,14 @@ export const UserItem = ({ user, upvotePost, hideUser }) => {
     <li>
       <span>{user.num_comments || 0}</span>
       <span>{user.points}</span>
-      <span>
+      <a>
         {
           <BsFillCaretUpFill
             onClick={() => upvotePost(user.objectID)}
             className="icon upvote"
           />
         }
-      </span>
+      </a>
       <button onClick={() => hideUser(user.objectID)} className="hide">
         [ hide ]
       </button>

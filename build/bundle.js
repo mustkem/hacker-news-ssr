@@ -791,7 +791,7 @@ var UserItem = exports.UserItem = function UserItem(_ref) {
       user.points
     ),
     _react2.default.createElement(
-      "span",
+      "a",
       null,
       _react2.default.createElement(_bs.BsFillCaretUpFill, {
         onClick: function onClick() {
