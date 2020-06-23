@@ -4,18 +4,21 @@ import { Link } from "react-router-dom";
 
 export const UserItem = ({ user, upvotePost, hideUser }) => {
   return (
-    <tr>
-      <td>{user.num_comments || 0}</td>
-      <td>{user.points}</td>
-      <td>
+    <li>
+      <span>{user.num_comments || 0}</span>
+      <span>{user.points}</span>
+      <span>
         {
           <BsFillCaretUpFill
             onClick={() => upvotePost(user.objectID)}
             className="icon upvote"
           />
         }
-      </td>
-      <td>
+      </span>
+      <button onClick={() => hideUser(user.objectID)} className="hide">
+        [ hide ]
+      </button>
+      {/* <td>
         <div className="details">
           <a target="_blank" className="title" href={user.url}>
             {user.title || "Na"}
@@ -30,13 +33,10 @@ export const UserItem = ({ user, upvotePost, hideUser }) => {
             <Link to=""> {user.author} </Link>
             &nbsp;
             <span>{user.created_at_i} hours agoo</span>&nbsp;
-            <button onClick={() => hideUser(user.objectID)} className="hide">
-              [ hide ]
-            </button>
           </span>
         </div>
-      </td>
-    </tr>
+      </td> */}
+    </li>
   );
 };
 

@@ -298,7 +298,7 @@ var _HomePage = __webpack_require__(18);
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
-var _NotFoundPage = __webpack_require__(25);
+var _NotFoundPage = __webpack_require__(29);
 
 var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
 
@@ -346,11 +346,11 @@ var _Routes = __webpack_require__(7);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _renderer = __webpack_require__(26);
+var _renderer = __webpack_require__(30);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
-var _createStore = __webpack_require__(29);
+var _createStore = __webpack_require__(33);
 
 var _createStore2 = _interopRequireDefault(_createStore);
 
@@ -649,13 +649,13 @@ var _Table = __webpack_require__(21);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _UserItem = __webpack_require__(22);
+var _UserItem = __webpack_require__(26);
 
 var _UserItem2 = _interopRequireDefault(_UserItem);
 
 var _index = __webpack_require__(2);
 
-var _Pagination = __webpack_require__(24);
+var _Pagination = __webpack_require__(28);
 
 var _Pagination2 = _interopRequireDefault(_Pagination);
 
@@ -696,41 +696,9 @@ var Home = exports.Home = function Home(props) {
     { className: "container" },
     head(),
     _react2.default.createElement(
-      _Table2.default,
-      { striped: true, hover: true },
-      _react2.default.createElement(
-        "thead",
-        null,
-        _react2.default.createElement(
-          "tr",
-          null,
-          _react2.default.createElement(
-            "th",
-            null,
-            "comment"
-          ),
-          _react2.default.createElement(
-            "th",
-            null,
-            "vote count"
-          ),
-          _react2.default.createElement(
-            "th",
-            null,
-            "upvote"
-          ),
-          _react2.default.createElement(
-            "th",
-            null,
-            "news details"
-          )
-        )
-      ),
-      _react2.default.createElement(
-        "tbody",
-        null,
-        renderUsers()
-      )
+      "ul",
+      null,
+      renderUsers()
     ),
     _react2.default.createElement(_Pagination2.default, {
       fetchUsers: props.fetchUsers,
@@ -738,6 +706,7 @@ var Home = exports.Home = function Home(props) {
     })
   );
 };
+// import Chart from "./Chart";
 
 var mapStateToProps = function mapStateToProps(state) {
   var data = state.users.toJS();
@@ -778,7 +747,11 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 module.exports = require("react-bootstrap/Table");
 
 /***/ }),
-/* 22 */
+/* 22 */,
+/* 23 */,
+/* 24 */,
+/* 25 */,
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -793,7 +766,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _bs = __webpack_require__(23);
+var _bs = __webpack_require__(27);
 
 var _reactRouterDom = __webpack_require__(1);
 
@@ -805,20 +778,20 @@ var UserItem = exports.UserItem = function UserItem(_ref) {
       hideUser = _ref.hideUser;
 
   return _react2.default.createElement(
-    "tr",
+    "li",
     null,
     _react2.default.createElement(
-      "td",
+      "span",
       null,
       user.num_comments || 0
     ),
     _react2.default.createElement(
-      "td",
+      "span",
       null,
       user.points
     ),
     _react2.default.createElement(
-      "td",
+      "span",
       null,
       _react2.default.createElement(_bs.BsFillCaretUpFill, {
         onClick: function onClick() {
@@ -828,55 +801,11 @@ var UserItem = exports.UserItem = function UserItem(_ref) {
       })
     ),
     _react2.default.createElement(
-      "td",
-      null,
-      _react2.default.createElement(
-        "div",
-        { className: "details" },
-        _react2.default.createElement(
-          "a",
-          { target: "_blank", className: "title", href: user.url },
-          user.title || "Na"
-        ),
-        _react2.default.createElement(
-          "span",
-          { className: "detail-bar" },
-          user.url && _react2.default.createElement(
-            _react2.default.Fragment,
-            null,
-            "(",
-            _react2.default.createElement(
-              "span",
-              { className: "url" },
-              user.url
-            ),
-            ")"
-          ),
-          "\xA0by\xA0",
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: "" },
-            " ",
-            user.author,
-            " "
-          ),
-          "\xA0",
-          _react2.default.createElement(
-            "span",
-            null,
-            user.created_at_i,
-            " hours agoo"
-          ),
-          "\xA0",
-          _react2.default.createElement(
-            "button",
-            { onClick: function onClick() {
-                return hideUser(user.objectID);
-              }, className: "hide" },
-            "[ hide ]"
-          )
-        )
-      )
+      "button",
+      { onClick: function onClick() {
+          return hideUser(user.objectID);
+        }, className: "hide" },
+      "[ hide ]"
     )
   );
 };
@@ -884,13 +813,13 @@ var UserItem = exports.UserItem = function UserItem(_ref) {
 exports.default = UserItem;
 
 /***/ }),
-/* 23 */
+/* 27 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-icons/bs");
 
 /***/ }),
-/* 24 */
+/* 28 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -969,7 +898,7 @@ var Pagination = exports.Pagination = function Pagination(props) {
 exports.default = Pagination;
 
 /***/ }),
-/* 25 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1002,7 +931,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 26 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1016,7 +945,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _server = __webpack_require__(27);
+var _server = __webpack_require__(31);
 
 var _reactRouterDom = __webpack_require__(1);
 
@@ -1024,7 +953,7 @@ var _reactRedux = __webpack_require__(6);
 
 var _reactRouterConfig = __webpack_require__(3);
 
-var _serializeJavascript = __webpack_require__(28);
+var _serializeJavascript = __webpack_require__(32);
 
 var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
 
@@ -1057,19 +986,19 @@ exports.default = function (req, store, context) {
 };
 
 /***/ }),
-/* 27 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 28 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = require("serialize-javascript");
 
 /***/ }),
-/* 29 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1081,15 +1010,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(8);
 
-var _reduxThunk = __webpack_require__(30);
+var _reduxThunk = __webpack_require__(34);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _axios = __webpack_require__(31);
+var _axios = __webpack_require__(35);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reducers = __webpack_require__(32);
+var _reducers = __webpack_require__(36);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -1107,19 +1036,19 @@ exports.default = function (req) {
 };
 
 /***/ }),
-/* 30 */
+/* 34 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 31 */
+/* 35 */
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
 
 /***/ }),
-/* 32 */
+/* 36 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1131,11 +1060,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(8);
 
-var _usersReducer = __webpack_require__(33);
+var _usersReducer = __webpack_require__(37);
 
 var _usersReducer2 = _interopRequireDefault(_usersReducer);
 
-var _globalReducer = __webpack_require__(34);
+var _globalReducer = __webpack_require__(38);
 
 var _globalReducer2 = _interopRequireDefault(_globalReducer);
 
@@ -1147,7 +1076,7 @@ exports.default = (0, _redux.combineReducers)({
 });
 
 /***/ }),
-/* 33 */
+/* 37 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1198,7 +1127,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 34 */
+/* 38 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

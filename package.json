@@ -14,6 +14,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@amcharts/amcharts4": "^4.9.27",
+    "acorn": "^6.1.1",
     "axios": "0.16.2",
     "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.5.0",

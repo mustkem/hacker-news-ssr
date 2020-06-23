@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
 import homeCss from "../../../css/home.css";
 import Table from "react-bootstrap/Table";
+// import Chart from "./Chart";
 
 import UserItem from "./UserItem";
 import { upvotePost, hideUser, fetchUsers } from "../../actions/index";
@@ -39,8 +40,8 @@ export const Home = (props) => {
   return (
     <div className="container">
       {head()}
-
-      <Table striped hover>
+      <ul>
+        {/* <Table striped hover>
         <thead>
           <tr>
             <th>comment</th>
@@ -49,12 +50,15 @@ export const Home = (props) => {
             <th>news details</th>
           </tr>
         </thead>
-        <tbody>{renderUsers()}</tbody>
-      </Table>
+        <tbody></tbody>
+      </Table> */}
+        {renderUsers()}
+      </ul>
       <Pagination
         fetchUsers={props.fetchUsers}
         serverQuery={props.serverQuery}
       />
+      {/* <Chart /> */}
     </div>
   );
 };
