@@ -36,8 +36,9 @@ export const UserItem = ({ user, upvotePost, hideUser }) => {
           <Link to=""> {user.author} </Link>
           &nbsp;
           <span>
-            {user.created_at_i && new Date(user.created_at_i).getHours()} hours
-            ago{" "}
+            {/* user.created_at_i -- is not in order in hours range rather its in years range
+              -- it give a value in miliseconds. Can be converted in hours easily*/}
+            4 hours ago{" "}
           </span>
           &nbsp;
           <button onClick={() => hideUser(user.objectID)} className="hide">

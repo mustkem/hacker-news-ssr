@@ -38951,8 +38951,7 @@ var UserItem = exports.UserItem = function UserItem(_ref) {
         _react2.default.createElement(
           "span",
           null,
-          user.created_at_i && new Date(user.created_at_i).getHours(),
-          " hours ago",
+          "4 hours ago",
           " "
         ),
         "\xA0",
