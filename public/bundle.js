@@ -38719,9 +38719,41 @@ var Home = exports.Home = function Home(props) {
     { className: "container" },
     head(),
     _react2.default.createElement(
-      "ul",
-      null,
-      renderUsers()
+      _Table2.default,
+      { striped: true, hover: true },
+      _react2.default.createElement(
+        "thead",
+        null,
+        _react2.default.createElement(
+          "tr",
+          null,
+          _react2.default.createElement(
+            "th",
+            null,
+            "comment"
+          ),
+          _react2.default.createElement(
+            "th",
+            null,
+            "vote count"
+          ),
+          _react2.default.createElement(
+            "th",
+            null,
+            "upvote"
+          ),
+          _react2.default.createElement(
+            "th",
+            null,
+            "news details"
+          )
+        )
+      ),
+      _react2.default.createElement(
+        "tbody",
+        null,
+        renderUsers()
+      )
     ),
     _react2.default.createElement(_Pagination2.default, {
       fetchUsers: props.fetchUsers,
@@ -38729,7 +38761,6 @@ var Home = exports.Home = function Home(props) {
     })
   );
 };
-// import Chart from "./Chart";
 
 var mapStateToProps = function mapStateToProps(state) {
   var data = state.users.toJS();
@@ -39081,26 +39112,20 @@ var UserItem = exports.UserItem = function UserItem(_ref) {
       hideUser = _ref.hideUser;
 
   return _react2.default.createElement(
-    "li",
+    "tr",
     null,
     _react2.default.createElement(
-      "span",
+      "td",
       null,
       user.num_comments || 0
     ),
     _react2.default.createElement(
-      "span",
+      "td",
       null,
       user.points
     ),
-    typeof window !== "undefined" && _react2.default.createElement(_bs.BsFillCaretUpFill, {
-      onClick: function onClick() {
-        return upvotePost(user.objectID);
-      },
-      className: "icon upvote"
-    }),
     _react2.default.createElement(
-      "a",
+      "td",
       null,
       _react2.default.createElement(_bs.BsFillCaretUpFill, {
         onClick: function onClick() {
@@ -39110,11 +39135,55 @@ var UserItem = exports.UserItem = function UserItem(_ref) {
       })
     ),
     _react2.default.createElement(
-      "button",
-      { onClick: function onClick() {
-          return hideUser(user.objectID);
-        }, className: "hide" },
-      "[ hide ]"
+      "td",
+      null,
+      _react2.default.createElement(
+        "div",
+        { className: "details" },
+        _react2.default.createElement(
+          "a",
+          { target: "_blank", className: "title", href: user.url },
+          user.title || "Na"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "detail-bar" },
+          user.url && _react2.default.createElement(
+            _react2.default.Fragment,
+            null,
+            "(",
+            _react2.default.createElement(
+              "span",
+              { className: "url" },
+              user.url
+            ),
+            ")"
+          ),
+          "\xA0by\xA0",
+          _react2.default.createElement(
+            _reactRouterDom.Link,
+            { to: "" },
+            " ",
+            user.author,
+            " "
+          ),
+          "\xA0",
+          _react2.default.createElement(
+            "span",
+            null,
+            user.created_at_i,
+            " hours agoo"
+          ),
+          "\xA0",
+          _react2.default.createElement(
+            "button",
+            { onClick: function onClick() {
+                return hideUser(user.objectID);
+              }, className: "hide" },
+            "[ hide ]"
+          )
+        )
+      )
     )
   );
 };
