@@ -9,11 +9,15 @@ export const fetchUsers = (query) => async (dispatch, getState, api) => {
   if (!query.page) {
     query.page = 1;
   }
-  const res = await api.get("/search?" + stringify(query));
-  dispatch({
-    type: FETCH_USERS,
-    payload: res.data,
-  });
+  try {
+    const res = await api.get("/search?" + stringify(query));
+    dispatch({
+      type: FETCH_USERS,
+      payload: res.data,
+    });
+  } catch (error) {
+    console.log("someting went wrong");
+  }
 };
 export const upvotePost = (id) => async (dispatch, getState, api) => {
   // call api here and dispatch below action in succes of api call.

@@ -103,6 +103,8 @@ button:focus {
   display: none;
 }
 
+/* mobile first design */
+
 @media (min-width: 1025px) {
   .user-list {
     padding: 0;

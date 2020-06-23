@@ -2743,23 +2743,32 @@ var fetchUsers = exports.fetchUsers = function fetchUsers(query) {
               if (!query.page) {
                 query.page = 1;
               }
-              _context.next = 3;
+              _context.prev = 1;
+              _context.next = 4;
               return api.get("/search?" + (0, _queryString.stringify)(query));
 
-            case 3:
+            case 4:
               res = _context.sent;
 
               dispatch({
                 type: FETCH_USERS,
                 payload: res.data
               });
+              _context.next = 11;
+              break;
 
-            case 5:
+            case 8:
+              _context.prev = 8;
+              _context.t0 = _context["catch"](1);
+
+              console.log("someting went wrong");
+
+            case 11:
             case "end":
               return _context.stop();
           }
         }
-      }, _callee, undefined);
+      }, _callee, undefined, [[1, 8]]);
     }));
 
     return function (_x, _x2, _x3) {
@@ -38603,7 +38612,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = (".header {\r\n  display: none;\r\n}\r\n\r\n.user-list {\r\n  padding: 20px 10px;\r\n}\r\n\r\n.detail-bar {\r\n  display: flex;\r\n  padding: 5px 0;\r\n  font-size: 12px;\r\n  color: #868686;\r\n  align-items: baseline;\r\n}\r\n\r\n.upvote {\r\n  color: #868686;\r\n  cursor: pointer;\r\n  padding: 2px;\r\n  font-size: 14px;\r\n}\r\n\r\n.upvote:active {\r\n  color: green;\r\n}\r\n\r\n.user-list li {\r\n  padding: 0.5rem;\r\n  display: flex;\r\n}\r\n\r\n.user-list li .bar {\r\n  display: block;\r\n  text-align: center;\r\n}\r\n\r\n.tile {\r\n  width: 70px;\r\n  font-size: 10px;\r\n  text-align: center;\r\n}\r\n\r\n.desc-tile {\r\n  width: calc(100% - 70px);\r\n  text-align: left;\r\n  position: relative;\r\n}\r\n.title {\r\n  font-size: 10px;\r\n  width: calc(100% - 40px);\r\n  display: block;\r\n}\r\n\r\n.hide {\r\n  color: #000;\r\n  cursor: pointer;\r\n  position: absolute;\r\n  right: 0;\r\n  top: 0;\r\n}\r\n\r\n.details {\r\n  display: flex;\r\n}\r\n\r\n.detail-bar .url {\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  max-width: 170px;\r\n}\r\n\r\nbutton,\r\nbutton:focus {\r\n  border: 0;\r\n  outline: 0;\r\n  padding: 0;\r\n  background: transparent;\r\n  font-size: 12px;\r\n}\r\n\r\n.pagination-wrap {\r\n  display: flex;\r\n}\r\n\r\n.pagination {\r\n  margin-left: auto;\r\n  padding: 30px;\r\n}\r\n\r\n.pagination button {\r\n  font-size: 12px;\r\n  padding: 0 4px;\r\n  color: orange;\r\n}\r\n\r\n.pagination .previous {\r\n  border-right: 1px solid orange;\r\n}\r\n\r\n.user-list .list-head {\r\n  display: none;\r\n}\r\n\r\n@media (min-width: 1025px) {\r\n  .user-list {\r\n    padding: 0;\r\n  }\r\n  .user-list .list-head {\r\n    background-color: orangered;\r\n    color: #fff;\r\n    text-transform: capitalize;\r\n    display: flex;\r\n  }\r\n  .list-head .bar {\r\n    display: block;\r\n    text-align: center;\r\n    width: 100px;\r\n  }\r\n  .list-head .bar:last-child {\r\n    width: calc(100%-300px);\r\n    text-align: left;\r\n  }\r\n  .tile {\r\n    width: 300px;\r\n    display: flex;\r\n    align-items: center;\r\n    font-size: 13px;\r\n  }\r\n  .title {\r\n    width: auto;\r\n    padding-right: 10px;\r\n    font-size: 12px;\r\n  }\r\n\r\n  .upvote {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .user-list .desc-tile {\r\n    display: flex;\r\n  }\r\n  .hide {\r\n    position: static;\r\n  }\r\n  .user-list li .bar {\r\n    width: 100px;\r\n  }\r\n}\r\n");
+/* harmony default export */ __webpack_exports__["default"] = (".header {\r\n  display: none;\r\n}\r\n\r\n.user-list {\r\n  padding: 20px 10px;\r\n}\r\n\r\n.detail-bar {\r\n  display: flex;\r\n  padding: 5px 0;\r\n  font-size: 12px;\r\n  color: #868686;\r\n  align-items: baseline;\r\n}\r\n\r\n.upvote {\r\n  color: #868686;\r\n  cursor: pointer;\r\n  padding: 2px;\r\n  font-size: 14px;\r\n}\r\n\r\n.upvote:active {\r\n  color: green;\r\n}\r\n\r\n.user-list li {\r\n  padding: 0.5rem;\r\n  display: flex;\r\n}\r\n\r\n.user-list li .bar {\r\n  display: block;\r\n  text-align: center;\r\n}\r\n\r\n.tile {\r\n  width: 70px;\r\n  font-size: 10px;\r\n  text-align: center;\r\n}\r\n\r\n.desc-tile {\r\n  width: calc(100% - 70px);\r\n  text-align: left;\r\n  position: relative;\r\n}\r\n.title {\r\n  font-size: 10px;\r\n  width: calc(100% - 40px);\r\n  display: block;\r\n}\r\n\r\n.hide {\r\n  color: #000;\r\n  cursor: pointer;\r\n  position: absolute;\r\n  right: 0;\r\n  top: 0;\r\n}\r\n\r\n.details {\r\n  display: flex;\r\n}\r\n\r\n.detail-bar .url {\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  max-width: 170px;\r\n}\r\n\r\nbutton,\r\nbutton:focus {\r\n  border: 0;\r\n  outline: 0;\r\n  padding: 0;\r\n  background: transparent;\r\n  font-size: 12px;\r\n}\r\n\r\n.pagination-wrap {\r\n  display: flex;\r\n}\r\n\r\n.pagination {\r\n  margin-left: auto;\r\n  padding: 30px;\r\n}\r\n\r\n.pagination button {\r\n  font-size: 12px;\r\n  padding: 0 4px;\r\n  color: orange;\r\n}\r\n\r\n.pagination .previous {\r\n  border-right: 1px solid orange;\r\n}\r\n\r\n.user-list .list-head {\r\n  display: none;\r\n}\r\n\r\n/* mobile first design */\r\n\r\n@media (min-width: 1025px) {\r\n  .user-list {\r\n    padding: 0;\r\n  }\r\n  .user-list .list-head {\r\n    background-color: orangered;\r\n    color: #fff;\r\n    text-transform: capitalize;\r\n    display: flex;\r\n  }\r\n  .list-head .bar {\r\n    display: block;\r\n    text-align: center;\r\n    width: 100px;\r\n  }\r\n  .list-head .bar:last-child {\r\n    width: calc(100%-300px);\r\n    text-align: left;\r\n  }\r\n  .tile {\r\n    width: 300px;\r\n    display: flex;\r\n    align-items: center;\r\n    font-size: 13px;\r\n  }\r\n  .title {\r\n    width: auto;\r\n    padding-right: 10px;\r\n    font-size: 12px;\r\n  }\r\n\r\n  .upvote {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .user-list .desc-tile {\r\n    display: flex;\r\n  }\r\n  .hide {\r\n    position: static;\r\n  }\r\n  .user-list li .bar {\r\n    width: 100px;\r\n  }\r\n}\r\n");
 
 /***/ }),
 /* 471 */
