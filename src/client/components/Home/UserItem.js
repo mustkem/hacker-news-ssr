@@ -36,7 +36,7 @@ export const UserItem = ({ user, upvotePost, hideUser }) => {
           <Link to=""> {user.author} </Link>
           &nbsp;
           <span>
-            {user.created_at_i && new Date().getHours(user.created_at_i)} hours
+            {user.created_at_i && new Date(user.created_at_i).getHours()} hours
             ago{" "}
           </span>
           &nbsp;
