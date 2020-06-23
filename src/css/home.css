@@ -1,14 +1,15 @@
-.user-list li {
-  position: relative;
-  padding-left: 36px;
-  padding-top: 2px;
-  padding-bottom: 8px;
+.header {
+  display: none;
+}
+
+.user-list {
+  padding: 20px 10px;
 }
 
 .detail-bar {
   display: flex;
   padding: 5px 0;
-  font-size: 8pt;
+  font-size: 12px;
   color: #868686;
   align-items: baseline;
 }
@@ -17,51 +18,46 @@
   color: #868686;
   cursor: pointer;
   padding: 2px;
-  font-size: 13pt;
+  font-size: 14px;
 }
 
 .upvote:active {
   color: green;
 }
 
-.table-bordered td,
-.table-bordered th {
-  border: 0px solid #dee2e6;
+.user-list li {
+  padding: 0.5rem;
+  display: flex;
 }
 
-.table thead th {
-  border: 0px solid #dee2e6;
-  background-color: orangered;
-  color: #fff;
-  text-transform: capitalize;
-}
-
-.table td,
-.table th {
-  border: 0px solid #dee2e6;
+.user-list li .bar {
+  display: block;
   text-align: center;
 }
 
-.table td,
-.table th {
-  padding: 0.5rem;
+.tile {
+  width: 70px;
+  font-size: 10px;
+  text-align: center;
 }
 
-.table thead th {
-  width: 100px;
-}
-
-.table thead th:last-child {
-  width: calc(100% - 300px);
+.desc-tile {
+  width: calc(100% - 70px);
   text-align: left;
+  position: relative;
 }
 .title {
-  padding-right: 8px;
+  font-size: 10px;
+  width: calc(100% - 40px);
+  display: block;
 }
 
 .hide {
   color: #000;
   cursor: pointer;
+  position: absolute;
+  right: 0;
+  top: 0;
 }
 
 .details {
@@ -72,7 +68,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  max-width: 200px;
+  max-width: 170px;
 }
 
 button,
@@ -81,7 +77,7 @@ button:focus {
   outline: 0;
   padding: 0;
   background: transparent;
-  font-size: 8pt;
+  font-size: 12px;
 }
 
 .pagination-wrap {
@@ -90,15 +86,65 @@ button:focus {
 
 .pagination {
   margin-left: auto;
-  padding: 10px;
+  padding: 30px;
 }
 
 .pagination button {
-  font-size: 10pt;
+  font-size: 12px;
   padding: 0 4px;
   color: orange;
 }
 
 .pagination .previous {
   border-right: 1px solid orange;
+}
+
+.user-list .list-head {
+  display: none;
+}
+
+@media (min-width: 1025px) {
+  .user-list {
+    padding: 0;
+  }
+  .user-list .list-head {
+    background-color: orangered;
+    color: #fff;
+    text-transform: capitalize;
+    display: flex;
+  }
+  .list-head .bar {
+    display: block;
+    text-align: center;
+    width: 100px;
+  }
+  .list-head .bar:last-child {
+    width: calc(100%-300px);
+    text-align: left;
+  }
+  .tile {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    font-size: 13px;
+  }
+  .title {
+    width: auto;
+    padding-right: 10px;
+    font-size: 12px;
+  }
+
+  .upvote {
+    font-size: 16px;
+  }
+
+  .user-list .desc-tile {
+    display: flex;
+  }
+  .hide {
+    position: static;
+  }
+  .user-list li .bar {
+    width: 100px;
+  }
 }

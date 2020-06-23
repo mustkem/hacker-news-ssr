@@ -40,17 +40,16 @@ export const Home = (props) => {
     <div className="container">
       {head()}
 
-      <Table striped hover>
-        <thead>
-          <tr>
-            <th>comment</th>
-            <th>vote count</th>
-            <th>upvote</th>
-            <th>news details</th>
-          </tr>
-        </thead>
-        <tbody>{renderUsers()}</tbody>
-      </Table>
+      <ul className="user-list">
+        <li className="list-head">
+          <span className="bar">comment</span>
+          <span className="bar">vote count</span>
+          <span className="bar">upvote</span>
+          <span className="bar">news details</span>
+        </li>
+        {/* <tbody></tbody> */}
+        {renderUsers()}
+      </ul>
       <Pagination
         fetchUsers={props.fetchUsers}
         serverQuery={props.serverQuery}

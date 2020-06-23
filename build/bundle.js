@@ -298,7 +298,7 @@ var _HomePage = __webpack_require__(18);
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
-var _NotFoundPage = __webpack_require__(29);
+var _NotFoundPage = __webpack_require__(26);
 
 var _NotFoundPage2 = _interopRequireDefault(_NotFoundPage);
 
@@ -346,11 +346,11 @@ var _Routes = __webpack_require__(7);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _renderer = __webpack_require__(30);
+var _renderer = __webpack_require__(27);
 
 var _renderer2 = _interopRequireDefault(_renderer);
 
-var _createStore = __webpack_require__(33);
+var _createStore = __webpack_require__(30);
 
 var _createStore2 = _interopRequireDefault(_createStore);
 
@@ -649,13 +649,13 @@ var _Table = __webpack_require__(21);
 
 var _Table2 = _interopRequireDefault(_Table);
 
-var _UserItem = __webpack_require__(26);
+var _UserItem = __webpack_require__(22);
 
 var _UserItem2 = _interopRequireDefault(_UserItem);
 
 var _index = __webpack_require__(2);
 
-var _Pagination = __webpack_require__(28);
+var _Pagination = __webpack_require__(25);
 
 var _Pagination2 = _interopRequireDefault(_Pagination);
 
@@ -696,41 +696,33 @@ var Home = exports.Home = function Home(props) {
     { className: "container" },
     head(),
     _react2.default.createElement(
-      _Table2.default,
-      { striped: true, hover: true },
+      "ul",
+      { className: "user-list" },
       _react2.default.createElement(
-        "thead",
-        null,
+        "li",
+        { className: "list-head" },
         _react2.default.createElement(
-          "tr",
-          null,
-          _react2.default.createElement(
-            "th",
-            null,
-            "comment"
-          ),
-          _react2.default.createElement(
-            "th",
-            null,
-            "vote count"
-          ),
-          _react2.default.createElement(
-            "th",
-            null,
-            "upvote"
-          ),
-          _react2.default.createElement(
-            "th",
-            null,
-            "news details"
-          )
+          "span",
+          { className: "bar" },
+          "comment"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "bar" },
+          "vote count"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "bar" },
+          "upvote"
+        ),
+        _react2.default.createElement(
+          "span",
+          { className: "bar" },
+          "news details"
         )
       ),
-      _react2.default.createElement(
-        "tbody",
-        null,
-        renderUsers()
-      )
+      renderUsers()
     ),
     _react2.default.createElement(_Pagination2.default, {
       fetchUsers: props.fetchUsers,
@@ -769,7 +761,7 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony default export */ __webpack_exports__["default"] = (".user-list li {\r\n  position: relative;\r\n  padding-left: 36px;\r\n  padding-top: 2px;\r\n  padding-bottom: 8px;\r\n}\r\n\r\n.detail-bar {\r\n  display: flex;\r\n  padding: 5px 0;\r\n  font-size: 8pt;\r\n  color: #868686;\r\n  align-items: baseline;\r\n}\r\n\r\n.upvote {\r\n  color: #868686;\r\n  cursor: pointer;\r\n  padding: 2px;\r\n  font-size: 13pt;\r\n}\r\n\r\n.upvote:active {\r\n  color: green;\r\n}\r\n\r\n.table-bordered td,\r\n.table-bordered th {\r\n  border: 0px solid #dee2e6;\r\n}\r\n\r\n.table thead th {\r\n  border: 0px solid #dee2e6;\r\n  background-color: orangered;\r\n  color: #fff;\r\n  text-transform: capitalize;\r\n}\r\n\r\n.table td,\r\n.table th {\r\n  border: 0px solid #dee2e6;\r\n  text-align: center;\r\n}\r\n\r\n.table td,\r\n.table th {\r\n  padding: 0.5rem;\r\n}\r\n\r\n.table thead th {\r\n  width: 100px;\r\n}\r\n\r\n.table thead th:last-child {\r\n  width: calc(100% - 300px);\r\n  text-align: left;\r\n}\r\n.title {\r\n  padding-right: 8px;\r\n}\r\n\r\n.hide {\r\n  color: #000;\r\n  cursor: pointer;\r\n}\r\n\r\n.details {\r\n  display: flex;\r\n}\r\n\r\n.detail-bar .url {\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  max-width: 200px;\r\n}\r\n\r\nbutton,\r\nbutton:focus {\r\n  border: 0;\r\n  outline: 0;\r\n  padding: 0;\r\n  background: transparent;\r\n  font-size: 8pt;\r\n}\r\n\r\n.pagination-wrap {\r\n  display: flex;\r\n}\r\n\r\n.pagination {\r\n  margin-left: auto;\r\n  padding: 10px;\r\n}\r\n\r\n.pagination button {\r\n  font-size: 10pt;\r\n  padding: 0 4px;\r\n  color: orange;\r\n}\r\n\r\n.pagination .previous {\r\n  border-right: 1px solid orange;\r\n}\r\n");
+/* harmony default export */ __webpack_exports__["default"] = (".header {\r\n  display: none;\r\n}\r\n\r\n.user-list {\r\n  padding: 20px 10px;\r\n}\r\n\r\n.detail-bar {\r\n  display: flex;\r\n  padding: 5px 0;\r\n  font-size: 12px;\r\n  color: #868686;\r\n  align-items: baseline;\r\n}\r\n\r\n.upvote {\r\n  color: #868686;\r\n  cursor: pointer;\r\n  padding: 2px;\r\n  font-size: 14px;\r\n}\r\n\r\n.upvote:active {\r\n  color: green;\r\n}\r\n\r\n.user-list li {\r\n  padding: 0.5rem;\r\n  display: flex;\r\n}\r\n\r\n.user-list li .bar {\r\n  display: block;\r\n  text-align: center;\r\n}\r\n\r\n.tile {\r\n  width: 70px;\r\n  font-size: 10px;\r\n  text-align: center;\r\n}\r\n\r\n.desc-tile {\r\n  width: calc(100% - 70px);\r\n  text-align: left;\r\n  position: relative;\r\n}\r\n.title {\r\n  font-size: 10px;\r\n  width: calc(100% - 40px);\r\n  display: block;\r\n}\r\n\r\n.hide {\r\n  color: #000;\r\n  cursor: pointer;\r\n  position: absolute;\r\n  right: 0;\r\n  top: 0;\r\n}\r\n\r\n.details {\r\n  display: flex;\r\n}\r\n\r\n.detail-bar .url {\r\n  text-overflow: ellipsis;\r\n  white-space: nowrap;\r\n  overflow: hidden;\r\n  max-width: 170px;\r\n}\r\n\r\nbutton,\r\nbutton:focus {\r\n  border: 0;\r\n  outline: 0;\r\n  padding: 0;\r\n  background: transparent;\r\n  font-size: 12px;\r\n}\r\n\r\n.pagination-wrap {\r\n  display: flex;\r\n}\r\n\r\n.pagination {\r\n  margin-left: auto;\r\n  padding: 30px;\r\n}\r\n\r\n.pagination button {\r\n  font-size: 12px;\r\n  padding: 0 4px;\r\n  color: orange;\r\n}\r\n\r\n.pagination .previous {\r\n  border-right: 1px solid orange;\r\n}\r\n\r\n.user-list .list-head {\r\n  display: none;\r\n}\r\n\r\n@media (min-width: 1025px) {\r\n  .user-list {\r\n    padding: 0;\r\n  }\r\n  .user-list .list-head {\r\n    background-color: orangered;\r\n    color: #fff;\r\n    text-transform: capitalize;\r\n    display: flex;\r\n  }\r\n  .list-head .bar {\r\n    display: block;\r\n    text-align: center;\r\n    width: 100px;\r\n  }\r\n  .list-head .bar:last-child {\r\n    width: calc(100%-300px);\r\n    text-align: left;\r\n  }\r\n  .tile {\r\n    width: 300px;\r\n    display: flex;\r\n    align-items: center;\r\n    font-size: 13px;\r\n  }\r\n  .title {\r\n    width: auto;\r\n    padding-right: 10px;\r\n    font-size: 12px;\r\n  }\r\n\r\n  .upvote {\r\n    font-size: 16px;\r\n  }\r\n\r\n  .user-list .desc-tile {\r\n    display: flex;\r\n  }\r\n  .hide {\r\n    position: static;\r\n  }\r\n  .user-list li .bar {\r\n    width: 100px;\r\n  }\r\n}\r\n");
 
 /***/ }),
 /* 21 */
@@ -778,11 +770,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 module.exports = require("react-bootstrap/Table");
 
 /***/ }),
-/* 22 */,
-/* 23 */,
-/* 24 */,
-/* 25 */,
-/* 26 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -797,9 +785,13 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _bs = __webpack_require__(27);
+var _bs = __webpack_require__(23);
 
 var _reactRouterDom = __webpack_require__(1);
+
+var _extractDomain = __webpack_require__(24);
+
+var _extractDomain2 = _interopRequireDefault(_extractDomain);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -809,76 +801,77 @@ var UserItem = exports.UserItem = function UserItem(_ref) {
       hideUser = _ref.hideUser;
 
   return _react2.default.createElement(
-    "tr",
+    "li",
     null,
     _react2.default.createElement(
-      "td",
-      null,
-      user.num_comments || 0
-    ),
-    _react2.default.createElement(
-      "td",
-      null,
-      user.points
-    ),
-    _react2.default.createElement(
-      "td",
-      null,
-      _react2.default.createElement(_bs.BsFillCaretUpFill, {
-        onClick: function onClick() {
-          return upvotePost(user.objectID);
-        },
-        className: "icon upvote"
-      })
-    ),
-    _react2.default.createElement(
-      "td",
-      null,
+      "div",
+      { className: "tile" },
       _react2.default.createElement(
-        "div",
-        { className: "details" },
-        _react2.default.createElement(
-          "a",
-          { target: "_blank", className: "title", href: user.url },
-          user.title || "Na"
-        ),
-        _react2.default.createElement(
-          "span",
-          { className: "detail-bar" },
-          user.url && _react2.default.createElement(
-            _react2.default.Fragment,
-            null,
-            "(",
-            _react2.default.createElement(
-              "span",
-              { className: "url" },
-              user.url
-            ),
-            ")"
-          ),
-          "\xA0by\xA0",
-          _react2.default.createElement(
-            _reactRouterDom.Link,
-            { to: "" },
-            " ",
-            user.author,
-            " "
-          ),
-          "\xA0",
+        "span",
+        { className: "bar" },
+        user.num_comments || 0
+      ),
+      _react2.default.createElement(
+        "span",
+        { className: "bar" },
+        user.points
+      ),
+      _react2.default.createElement(
+        "span",
+        { className: "bar" },
+        _react2.default.createElement(_bs.BsFillCaretUpFill, {
+          onClick: function onClick() {
+            return upvotePost(user.objectID);
+          },
+          className: "icon upvote"
+        })
+      )
+    ),
+    _react2.default.createElement(
+      "div",
+      { className: "desc-tile" },
+      _react2.default.createElement(
+        "a",
+        { target: "_blank", className: "title", href: user.url },
+        user.title || "Na"
+      ),
+      _react2.default.createElement(
+        "span",
+        { className: "detail-bar" },
+        user.url && _react2.default.createElement(
+          _react2.default.Fragment,
+          null,
+          "(",
           _react2.default.createElement(
             "span",
-            null,
-            user.created_at_i,
-            " hours agoo"
+            { title: user.url, className: "url" },
+            (0, _extractDomain2.default)(user.url)
           ),
-          "\xA0",
-          _react2.default.createElement(
-            "button",
-            { onClick: function onClick() {
-                return hideUser(user.objectID);
-              }, className: "hide" },
-            "[ hide ]"
-          )
+          ")"
+        ),
+        "\xA0by\xA0",
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: "" },
+          " ",
+          user.author,
+          " "
+        ),
+        "\xA0",
+        _react2.default.createElement(
+          "span",
+          null,
+          user.created_at_i && new Date().getHours(user.created_at_i),
+          " hours ago",
+          " "
+        ),
+        "\xA0",
+        _react2.default.createElement(
+          "button",
+          { onClick: function onClick() {
+              return hideUser(user.objectID);
+            }, className: "hide" },
+          "[ hide ]"
         )
       )
     )
@@ -888,13 +881,19 @@ var UserItem = exports.UserItem = function UserItem(_ref) {
 exports.default = UserItem;
 
 /***/ }),
-/* 27 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-icons/bs");
 
 /***/ }),
-/* 28 */
+/* 24 */
+/***/ (function(module, exports) {
+
+module.exports = require("extract-domain");
+
+/***/ }),
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -973,7 +972,7 @@ var Pagination = exports.Pagination = function Pagination(props) {
 exports.default = Pagination;
 
 /***/ }),
-/* 29 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1006,7 +1005,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 30 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1020,7 +1019,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _server = __webpack_require__(31);
+var _server = __webpack_require__(28);
 
 var _reactRouterDom = __webpack_require__(1);
 
@@ -1028,7 +1027,7 @@ var _reactRedux = __webpack_require__(6);
 
 var _reactRouterConfig = __webpack_require__(3);
 
-var _serializeJavascript = __webpack_require__(32);
+var _serializeJavascript = __webpack_require__(29);
 
 var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
 
@@ -1061,19 +1060,19 @@ exports.default = function (req, store, context) {
 };
 
 /***/ }),
-/* 31 */
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 32 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = require("serialize-javascript");
 
 /***/ }),
-/* 33 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1085,15 +1084,15 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(8);
 
-var _reduxThunk = __webpack_require__(34);
+var _reduxThunk = __webpack_require__(31);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
-var _axios = __webpack_require__(35);
+var _axios = __webpack_require__(32);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _reducers = __webpack_require__(36);
+var _reducers = __webpack_require__(33);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -1111,19 +1110,19 @@ exports.default = function (req) {
 };
 
 /***/ }),
-/* 34 */
+/* 31 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 35 */
+/* 32 */
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
 
 /***/ }),
-/* 36 */
+/* 33 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1135,11 +1134,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(8);
 
-var _usersReducer = __webpack_require__(37);
+var _usersReducer = __webpack_require__(34);
 
 var _usersReducer2 = _interopRequireDefault(_usersReducer);
 
-var _globalReducer = __webpack_require__(38);
+var _globalReducer = __webpack_require__(35);
 
 var _globalReducer2 = _interopRequireDefault(_globalReducer);
 
@@ -1151,7 +1150,7 @@ exports.default = (0, _redux.combineReducers)({
 });
 
 /***/ }),
-/* 37 */
+/* 34 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1202,7 +1201,7 @@ exports.default = function () {
 };
 
 /***/ }),
-/* 38 */
+/* 35 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
