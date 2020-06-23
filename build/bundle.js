@@ -790,6 +790,12 @@ var UserItem = exports.UserItem = function UserItem(_ref) {
       null,
       user.points
     ),
+    typeof window !== "undefined" && _react2.default.createElement(_bs.BsFillCaretUpFill, {
+      onClick: function onClick() {
+        return upvotePost(user.objectID);
+      },
+      className: "icon upvote"
+    }),
     _react2.default.createElement(
       "a",
       null,
