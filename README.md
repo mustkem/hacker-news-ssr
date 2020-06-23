@@ -17,6 +17,9 @@ The initial page load is faster than client side rendering.
 5. Hide functionality to remove the news from user’s view. (Also created action that can be intigtated with api )
 6. Prev | Next link should get the relevant data and all paginated urls should be bookmarkable.
 
+### Design strategy
+Mobile first design
+
 ### Implementation Method and technology stack
 This project hosts a intermediate server, generate all the templates at server side as requested by client/browser and send them back to 
 client. These templates are sent as plain html and are hydrated at client side by methods proided by reactdom.
