@@ -86,6 +86,7 @@ To sanatise the html sent by server. And to nullify the XSS attacks
 To run multiple commands parallelly
 
 
+
 # Run project
 
 Below command will run a development server. And project will run on localhost:3000
