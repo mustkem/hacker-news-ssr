@@ -1,108 +1,81 @@
-### Project Title and Overview
-This project is created by server side rending with reactjs. The templetes are created at server side and sent back to client.
+# Hacker News SSR - React Server-Side Rendering from Scratch
 
-### Purpose and Need
-You can understand the flow and setup of SSR app by following up this project. This can be considered as sheed project and 
-can be expended to any scale. 
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![Redux](https://img.shields.io/badge/Redux-764ABC?style=flat-square&logo=redux&logoColor=white)
+![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=express&logoColor=white)
+![Webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=flat-square&logo=webpack&logoColor=black)
+![Babel](https://img.shields.io/badge/Babel-F9DC3E?style=flat-square&logo=babel&logoColor=black)
+![Jest](https://img.shields.io/badge/Jest-C21325?style=flat-square&logo=jest&logoColor=white)
 
-### Benefits and Costs
-Search engines can crawl the site and therefore better SEO support than client side rendering.
-The initial page load is faster than client side rendering.
+A Hacker News client with **server-side rendering built by hand**: no Next.js and no SSR framework. Pages are rendered to HTML on an Express server, sent to the browser, then hydrated by React so they become fully interactive.
 
-### Expected Outcomes:
-1. Server side Rendering with custom setup -- No third party plugin is used
-2. Semantic design
-3. Unit tests cases (tests if props are correctly passed, childrens are available, If mock click event works fine. file-name= [__tests__]). A custom setup to support Test cases is intigrated.
-4. Upvote - You can add as many upvotes as you wish.(Api mocked)
-5. Hide functionality to remove the news from user’s view. (Also created action that can be intigtated with api )
-6. Prev | Next link should get the relevant data and all paginated urls should be bookmarkable.
+It's meant as a clear, working reference for how SSR actually works under the hood, and it can serve as a starter for larger apps.
 
-### Design strategy
-Mobile first design
+---
 
-### Implementation Method and technology stack
-This project hosts a intermediate server, generate all the templates at server side as requested by client/browser and send them back to 
-client. These templates are sent as plain html and are hydrated at client side by methods proided by reactdom.
-Below is the list of Technology, library, packages etc used to create this project.
+## ✨ Features
 
+- **Custom SSR pipeline**: Express renders React with `StaticRouter`, and the browser hydrates with `BrowserRouter`
+- **Server-to-client state hydration**: a Redux store is filled on the server, serialized into the page and reused as the client's initial state
+- **XSS-safe state serialization** with `serialize-javascript`
+- **Code splitting** with `react-loadable`
+- **SEO**: per-route meta tags with `react-helmet`
+- **API proxying**: `express-http-proxy` sends browser API calls through the host server, so client and server use the same API layer
+- **Upvote and hide** actions on stories (API mocked, actions ready to wire to a real backend)
+- **Bookmarkable pagination**: Prev and Next links map to shareable URLs
+- **Mobile-first**, semantic markup
+- **Unit tests** with Jest and Enzyme covering props, rendering and click events
 
-## Node.js
-To create JavaScript runtime environment that can executes JavaScript code outside a web browser ie:server
+---
 
-## Express.js
-This package is used to create a intermediate server which listen to client route requests and reroute these requests to a routing 
-library such as static router and send the content back to client/browser.
+## 🏗️ How it works
 
+```mermaid
+sequenceDiagram
+    participant B as Browser
+    participant S as Express server
+    participant A as HN API
+    B->>S: GET /?page=2
+    S->>A: Fetch stories for the route
+    A-->>S: JSON data
+    S->>S: Fill Redux store and render React to HTML
+    S-->>B: HTML + serialized store
+    B->>B: Hydrate React using the same store
+    B->>S: Later API calls (proxied)
+    S->>A: Forward request
+```
 
-## React.js
-This javascript library is used for building user interfaces aka components at server side and as well as at client side.
+### Build setup
 
-## Webpack
-Webpack is used to bundle the assets of project. There are two seprate files one configuration for client assets and another is 
-for server assets. Both files have diffent entry and output points. Both files share base configuration form a webpack.base.js
-file which is shared/common between both.
+- Two Webpack configs (`webpack.client.js` and `webpack.server.js`) share a common `webpack.base.js`
+- Babel transpiles modern JavaScript for the last two browser versions
+- `npm-run-all` runs the server build, client build and Nodemon in parallel during development
 
-## Babel
-For transpilation of code babel is used. This transpiler is used in conjunction with webpack. Transpiling is targeting the last 2 versions 
-of browsers. It means all advance/ES6/ES7 code will be transpiled to a code which browser can understand. For loading css files
-raw loader is used. And for static assets like css files / images a webpack loaded url-loader is used.
+---
 
-## nodemon
-Restarting the application when file changes in the directory are detected.
+## 🚀 Getting started
 
-## redux react-redux
-Redux is used as application state container. This application has two redux store one for each the client side and the server side. We build a standalone store at server side and this store will fill data to our react component at server side. Once our html is build, it is sent back to client by express server along with the stringified data of server store.
-At client side we have all the components rendereded in client page. Now our requirment is to hydrate our app and give it the life. Bind all the javascript and events. For that we build the same html at client side by using the store data passed by server. So we pass this
-store json data which comes form server, to client store as initial state. And once element tree is build at client side it take over the html sent by server.
+```bash
+npm install
 
-## Redux-thunk
-To dispatch actions other than object. ie - functions
-
-## immutable
-This package is used to achieve immutibility in redux store.
-
-## axios
-To make api requests. We have two diffrent domain for each server and client. Whenever client sent request they are sent to our intermediate server that is our host server. Now this server redirects these client requests to api server. On the other hand host server can directly send the api calls. For this reason we need two diffrent api paths. 
-
-## express-http-proxy
-This package is used to proxy the client api call to api server from our host server.
-
-## react-bootstrap
-UI framwork
-
-## react-helmet
-To create dynamaic meta and styles based on dynamic content or route.
-
-## react-icons
-Icons are used from this library
-
-## react-router-config And react-router-dom
-To support serverside rendering StaticRouter is used and for browser browserRouter is used.
-
-## serialize-javascript
-To sanatise the html sent by server. And to nullify the XSS attacks
-
-## npm-run-all
-To run multiple commands parallelly
-
-
-
-# Run project
-
-Below command will run a development server. And project will run on localhost:3000
+# development server on http://localhost:3000
 npm run dev
 
-Below command will run test coverage for test cases
+# tests with coverage
 npm run test
 
-Below command is to deploy the code at heroku
+# production start
 npm start
+```
 
+---
 
+## 🛠️ Tech stack
 
+React · Redux · Redux Thunk · Immutable.js · React Router (`react-router-config`) · Express · express-http-proxy · Webpack · Babel · react-helmet · react-loadable · serialize-javascript · React Bootstrap · Jest · Enzyme · Nodemon
 
+---
 
+## 👤 Author
 
-
-
-
+**Mustkeem K**, Senior Full Stack Engineer · [mustkeemk.com](https://mustkeemk.com) · [LinkedIn](https://linkedin.com/in/mustkeemk)
